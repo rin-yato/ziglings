@@ -53,6 +53,7 @@ fn isPangram(str: []const u8) bool {
             // and are numbered sequentially, we simply subtract the
             // first letter (in this case the 'a') from the character
             // found, and thus get the position of the desired bit
+            // print("truncate: {any}\n", .{@truncate(ascii.toLower(c) - 'a')});
             bits |= @as(u32, 1) << @truncate(ascii.toLower(c) - 'a');
         }
     }
@@ -60,5 +61,5 @@ fn isPangram(str: []const u8) bool {
     // and if so, we know the given string is a pangram
     //
     // but what do we have to compare?
-    return bits == 0x..???;
+    return bits == 0b11111111111111111111111111;
 }
